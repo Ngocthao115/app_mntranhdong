@@ -159,7 +159,7 @@ def assemble_video(frames, audio_path: str, output_path: str, fps: int) -> str:
 def run_pipeline(image_path, voice, language, style, duration, status_cb, api_key):
     try:
         from openai import OpenAI
-        client = OpenAI(OPENAI_API_KEY=api_key)
+        client = OpenAI(api_key=api_key)
         out_dir = Path("/tmp/drawing_animator_output")
         out_dir.mkdir(exist_ok=True)
         ts = int(time.time())
