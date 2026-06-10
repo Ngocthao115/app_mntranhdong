@@ -2,7 +2,7 @@ import streamlit as st
 import os
 
 st.set_page_config(
-    page_title="Tranh Động Của Bé",
+    page_title="Ý TƯỞNG CỦA BÉ",
     page_icon="🎨",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -139,7 +139,6 @@ api_key = os.environ.get("OPENAI_API_KEY", "")
 if not api_key:
     with st.expander("⚙️ Cài đặt API Key", expanded=True):
         api_key = st.text_input(
-            "Nhập OpenAI API Key của bạn",
             type="password",
             placeholder="sk-...",
             help="Key chỉ dùng trong phiên này, không được lưu lại"
@@ -209,6 +208,8 @@ with col_right:
         st.warning("🔑 Cần nhập API key OpenAI trước")
     else:
         if st.button("✨ Tạo Video Hoạt Hình!", use_container_width=True):
+            import sys, os
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
             from utils.pipeline import run_pipeline
 
             # Lưu ảnh tạm
